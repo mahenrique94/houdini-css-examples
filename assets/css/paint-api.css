@@ -1,0 +1,6 @@
+.circle {
+    --circle-color: #595959;
+    background: paint(circle);
+    height: 500px;
+    width: 500px;
+}

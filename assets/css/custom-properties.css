@@ -1,0 +1,12 @@
+.box {
+    background: var(--bg);
+    display: inline-block;
+    padding: 5rem;
+}
+
+.box.has-bg {
+    --bg: #ff8080;
+    background: var(--bg);
+    display: inline-block;
+    padding: 5rem;
+}
