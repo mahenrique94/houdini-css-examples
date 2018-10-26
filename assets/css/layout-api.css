@@ -1,0 +1,19 @@
+.block {
+    display: layout(blocklike);
+    width: 500px;
+}
+
+.box {
+    margin-right: 1rem;
+}
+
+.masonry {
+    display: layout(masonry);
+    --padding: 20;
+    --columns: 3;
+}
+
+.masonry__box {
+    background: #ff00ff;
+    color: #fdfdfd;
+}

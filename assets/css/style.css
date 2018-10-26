@@ -47,7 +47,7 @@ body {
     background: var(--colorPrimary);
     color: var(--colorText);
     padding: 1rem 1.5rem;
-    position: absolute;
+    position: fixed;
     left: 50px;
     bottom: 50px;
 }

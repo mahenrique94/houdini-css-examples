@@ -1,0 +1,19 @@
+:root {
+    --boxSize: 300px;
+}
+
+.box {
+    animation: 1s change infinite alternate linear;
+    background: var(--animated-bg);
+    height: var(--boxSize);
+    width: var(--boxSize);
+}
+
+@keyframes change {
+    from {
+        --animated-bg: #0099ff;
+    }
+    to {
+        --animated-bg: #00cc99;
+    }
+}

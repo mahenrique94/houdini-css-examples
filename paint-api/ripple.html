@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Houdini CSS | Paint API - Ripple</title>
+    <link rel="stylesheet" href="../assets/css/normalize.css">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+    #ripple {
+        width: 300px;
+        height: 300px;
+        border-radius: 150px;
+        font-size: 5em;
+        background-color: rgb(255,64,129);
+        border: 0;
+        box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12),0 1px 1px 0 rgba(0,0,0,.24);
+        color: white;
+        --ripple-x: 0;
+        --ripple-y: 0;
+        --ripple-color: rgba(255,255,255,0.54);
+        --animation-tick: 0;
+    }
+    #ripple:focus {
+        outline: none;
+    }
+    #ripple.animating {
+        background-image: paint(ripple);
+    }
+    </style>
+</head>
+<body>
+    <h1 class="title">Paint API - Ripple</h1>
+    <main class="container">
+        <button id="ripple">
+        Click me!
+        </button>
+        <a class="back" href="../paint-api.html">Voltar</a>
+    </main>
+    <script>
+        CSS.paintWorklet.addModule('../assets/js/paint-api/ripple.js');
+          const button = document.querySelector('#ripple');
+          let start = performance.now();
+          let x, y;
+          document.querySelector('#ripple').addEventListener('click', evt => {
+            button.classList.add('animating');
+            [x, y] = [evt.clientX, evt.clientY];
+            start = performance.now();
+            requestAnimationFrame(function raf(now) {
+              const count = Math.floor(now - start);
+              button.style.cssText = `--ripple-x: ${x}; --ripple-y: ${y}; --animation-tick: ${count};`;
+              if(count > 1000) {
+                button.classList.remove('animating');
+                button.style.cssText = `--animation-tick: 0`;
+                return;
+              }
+              requestAnimationFrame(raf);
+            })
+          })
+          </script>
+</body>
+</html>

@@ -1,6 +1,136 @@
+:root {
+    --boxSize: 300px;
+    --circleSize: 500px;
+}
+
 .circle {
-    --circle-color: #595959;
+    --circle-color: .595959;
     background: paint(circle);
-    height: 500px;
-    width: 500px;
+    display: inline-block;
+    height: var(--circleSize);
+    width: var(--circleSize);
+}
+
+.box {
+    background-color: #ff6a00;
+    display: inline-block;
+    height: var(--boxSize);
+    margin-right: 2rem;
+    width: var(--boxSize);
+}
+
+.box.radius-normal {
+    border-radius: 10px;
+}
+
+.box.radius-reverse {
+    --border-radius-reverse: 10;
+    --border-radius-reverse-color: #ff6a00;
+    background-clip: content-box;
+    border: solid 0;
+    border-image: paint(border-radius-reverse);
+    border-image-slice: 10;
+    border-width: 50px;
+}
+
+.ripple {
+    --animation-tick: 0;
+    --ripple-x: 0;
+    --ripple-y: 0;
+    --ripple-color: rgba(255,255,255,0.54);
+    background-color: rgb(255,64,129);
+    border: 0;
+    border-radius: 150px;
+    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12),0 1px 1px 0 rgba(0,0,0,.24);
+    color: white;
+    font-size: 5em;
+    height: 300px;
+    padding-top: 4rem;
+    text-align: center;
+    width: 300px;
+}
+
+.ripple.animating {
+    background-image: paint(ripple);
+}
+
+.ripple:focus {
+    outline: none;
+}
+
+.spinner-painter {
+    animation: spinner-rotation 1.2s linear infinite;
+    background: paint(spinner-painter);
+    display: inline-block;
+    height: 64px;
+    width: 64px;
+}
+
+@keyframes spinner-rotation {
+    0% {
+        --spinner-angle-degrees: 0;
+    }
+    100% {
+        --spinner-angle-degrees: 360;
+    }
+}
+
+.ring-painter {
+    animation: comet-head 1.2s cubic-bezier(0.5, 0, 0.5, 1) -0.45s infinite, comet-tail 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    background: paint(ring-painter);
+    display: inline-block;
+    height: 64px;
+    width: 64px;
+}
+
+@keyframes comet-head {
+    0% {
+        --comet-head-degrees: -45;
+    }
+    100% {
+        --comet-head-degrees: 315;
+    }
+}
+
+@keyframes comet-tail {
+    0% {
+        --comet-tail-degrees: -135;
+    }
+    100% {
+        --comet-tail-degrees: 225;
+    }
+}
+
+.roller-painter {
+    animation: roller 1.2s linear infinite;
+    background: paint(roller-painter);
+    display: inline-block;
+    height: 64px;
+    width: 64px;
+}
+
+@keyframes roller {
+    0% {
+        --parametric-value: 0;
+    }
+    100% {
+        --parametric-value: 1;
+    }
+}
+
+.ripple-painter {
+    animation: ripple 1s linear infinite;
+    background: paint(ripple-painter);
+    display: inline-block;
+    height: 64px;
+    width: 64px;
+}
+
+@keyframes ripple {
+    0% {
+        --ripple: 0;
+    }
+    100% {
+        --ripple: 1;
+    }
 }

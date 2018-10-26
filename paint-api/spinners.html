@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Houdini CSS | Paint API - Spinners</title>
+    <link rel="stylesheet" href="../assets/css/normalize.css">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/paint-api.css">
+</head>
+<body>
+    <h1 class="title">Paint API - Spinners</h1>
+    <main class="container">
+        <div class="spinner-painter"></div>
+        <div class="ring-painter"></div>
+        <div class="roller-painter"></div>
+        <div class="ripple-painter"></div>
+        <a class="back" href="../paint-api.html">Voltar</a>
+    </main>
+    <script src="../assets/js/paint-api.js"></script>
+    <script>
+        CSS.paintWorklet.addModule('../assets/js/paint-api/spinner-painter.js')
+        CSS.paintWorklet.addModule('../assets/js/paint-api/ring-painter.js')
+        CSS.paintWorklet.addModule('../assets/js/paint-api/roller-painter.js')
+        CSS.paintWorklet.addModule('../assets/js/paint-api/ripple-painter.js')
+    </script>
+</body>
+</html>
